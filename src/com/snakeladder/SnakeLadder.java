@@ -1,6 +1,6 @@
 package com.snakeladder;
 
-public class SnakeLadderStart {
+public class SnakeLadder {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
