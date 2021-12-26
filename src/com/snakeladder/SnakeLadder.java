@@ -8,38 +8,39 @@ public class SnakeLadder {
         int currentPosition=0;
         int minValOfDice=1;
         int maxValOfDice=6;
+        int winPosition=100;
         System.out.println("Game started with current position as 0.");
 
         //creating object of Random
         Random rm= new Random();
 
-        //rolling a dice to get number between 1 to 6
-        int diceValue= rm.nextInt((maxValOfDice - minValOfDice) + minValOfDice)+1;
 
-        //printing the dice value
-        System.out.println("You got: "+diceValue);
-
-        //getting options for steps
-        int step=rm.nextInt(3);
-
-        if(step==0)
+        //looping to get win position
+        while(currentPosition<winPosition)
         {
-            System.out.println("You got no play.");
-        }
-        else if(step==1)
-        {
-            System.out.println("You got ladder. So moving by "+diceValue+" steps.");
-            currentPosition=currentPosition+diceValue;
-        }
-        else
-        {
-            System.out.println("Opps!! You got a snake bite. Moving down by "+diceValue+" position.");
-            currentPosition=currentPosition-diceValue;
-            if(currentPosition<0)
-                currentPosition=0;
+            //rolling a dice to get number between 1 to 6
+            int diceValue= rm.nextInt((maxValOfDice - minValOfDice) + minValOfDice)+1;
+
+            //printing the dice value
+            System.out.println("Rolling dice.You got: "+diceValue);
+
+            int step = rm.nextInt(3);
+
+            if (step == 0) 
+			{
+                System.out.println("You got no play.");
+            } else if (step == 1) {
+                System.out.println("You got ladder. So moving by " + diceValue + " steps.");
+                currentPosition = currentPosition + diceValue;
+             } else {
+                System.out.println("Opps!! You got a snake bite. Moving down by " + diceValue + " position.");
+                currentPosition = currentPosition - diceValue;
+                if (currentPosition < 0)
+                    currentPosition = 0;
+             }
         }
 
-
+        System.out.println("Congratulations!!! You won the game.");
     }
 
 }
