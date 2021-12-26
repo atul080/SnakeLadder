@@ -1,7 +1,7 @@
 package com.snakeladder;
 
 import java.util.*;
-public class SnakeLadderExactWin {
+public class SnakeLadder {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
@@ -9,6 +9,7 @@ public class SnakeLadderExactWin {
         int minValOfDice=1;
         int maxValOfDice=6;
         int winPosition=100;
+        int diceRollCount=0;
         System.out.println("*******Game started with current position as 0.*******");
 
         //creating object of Random
@@ -28,6 +29,7 @@ public class SnakeLadderExactWin {
 
             if (step == 0) {
                 System.out.println("You got no play.");
+                System.out.println("Your new postion is: " + currentPosition);
             } else if (step == 1) {
                 System.out.println("You got ladder. So moving by " + diceValue + " steps.");
 
@@ -37,16 +39,19 @@ public class SnakeLadderExactWin {
                     currentPosition=newPosition;
                 else
                     System.out.println("Sorry! You need exact "+(winPosition-currentPosition)+" to win.");
-                
+
+                System.out.println("Your new postion is: " + currentPosition);
             } else {
                 System.out.println("Opps!! You got a snake bite. Moving down by " + diceValue + " position.");
                 currentPosition = currentPosition - diceValue;
                 if (currentPosition < 0)
                     currentPosition = 0;
+                System.out.println("Your new postion is: " + currentPosition);
             }
+            diceRollCount++;
         }
 
-        System.out.println("Congratulations!!! You won the game.");
+        System.out.println("Congratulations!!! You won the game in total "+diceRollCount+" plays.");
     }
 
 }
